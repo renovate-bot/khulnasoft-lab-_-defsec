@@ -67,9 +67,11 @@ update-aws-deps:
 
 .PHONY: adapter-lint
 adapter-lint:
+
+	./scripts/docker_rm.sh
 	go run ./cmd/adapter-lint/main.go ./internal/adapters/...
 	go run ./cmd/adapter-lint/main.go ./pkg/providers/...
-
+	
 .PHONY: outdated-api-updated
 outdated-api-updated:
 	sed -i.bak "s|recommendedVersions :=.*|recommendedVersions := $(OUTDATE_API_DATA)|" $(DYNAMIC_REGO_FOLDER)/outdated_api.rego && rm $(DYNAMIC_REGO_FOLDER)/outdated_api.rego.bak
