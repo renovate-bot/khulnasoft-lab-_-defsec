@@ -42,6 +42,7 @@ quality:
 update-loader:
 	python3 scripts/update_loader_rules.py
 	@goimports -w pkg/rules/rules.go
+	./scripts/bundle.sh
 
 .PHONY: metadata_lint
 metadata_lint:
