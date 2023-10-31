@@ -7,7 +7,7 @@ import (
 
 	defsecTypes "github.com/khulnasoft-lab/defsec/pkg/types"
 
-	"github.com/khulnasoft-lab/defsec/pkg/scanners/terraform/context"
+	"github.com/khulnasoft-lab/defsec/pkg/terraform/context"
 
 	"github.com/google/uuid"
 	"github.com/hashicorp/hcl/v2"

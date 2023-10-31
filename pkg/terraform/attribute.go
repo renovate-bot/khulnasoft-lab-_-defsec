@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/khulnasoft-lab/defsec/pkg/scanners/terraform/context"
+	"github.com/khulnasoft-lab/defsec/pkg/terraform/context"
 	defsecTypes "github.com/khulnasoft-lab/defsec/pkg/types"
 
 	"github.com/hashicorp/hcl/v2"
