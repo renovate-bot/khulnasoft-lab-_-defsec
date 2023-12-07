@@ -24,7 +24,6 @@ type Cluster struct {
 	EnableLegacyABAC         defsecTypes.BoolValue
 	ResourceLabels           defsecTypes.MapValue
 	RemoveDefaultNodePool    defsecTypes.BoolValue
-	EnableAutpilot           defsecTypes.BoolValue
 }
 
 type NodeConfig struct {

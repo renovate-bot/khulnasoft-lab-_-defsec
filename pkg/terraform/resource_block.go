@@ -77,10 +77,7 @@ func renderTemplateValue(val interface{}) string {
 	case map[string]interface{}:
 		return fmt.Sprintf("= %s", renderMap(t))
 	case []interface{}:
-		if isMapSlice(t) {
-			return renderSlice(t)
-		}
-		return fmt.Sprintf("= %s", renderSlice(t))
+		return renderSlice(t)
 	default:
 		return fmt.Sprintf("= %s", renderPrimitive(val))
 	}
@@ -98,27 +95,12 @@ EOF
 `, t)
 		}
 		return fmt.Sprintf("%q", t)
-	case map[string]interface{}:
-		return renderMap(t)
 	case []interface{}:
 		return renderSlice(t)
 	default:
 		return fmt.Sprintf("%#v", t)
 	}
 
-}
-
-func isMapSlice(vars []interface{}) bool {
-	if len(vars) == 0 {
-		return false
-	}
-	val := vars[0]
-	switch val.(type) {
-	case map[string]interface{}:
-		return true
-	default:
-		return false
-	}
 }
 
 func renderSlice(vals []interface{}) string {
@@ -134,7 +116,7 @@ func renderSlice(vals []interface{}) string {
 		return renderMap(t)
 	// otherwise its going to be just a list of primitives
 	default:
-		result := "[\n"
+		result := " = [\n"
 		for _, v := range vals {
 			result = fmt.Sprintf("%s\t%v,\n", result, renderPrimitive(v))
 		}

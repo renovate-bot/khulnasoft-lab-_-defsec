@@ -18,7 +18,7 @@ func Test_StringValueEqualTo(t *testing.T) {
 		expected   bool
 	}{
 		{
-			desc:     "return true when string is equal",
+			desc:     "return truw when string is equal",
 			input:    "something",
 			check:    "",
 			expected: false,
